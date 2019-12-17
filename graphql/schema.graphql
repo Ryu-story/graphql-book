@@ -5,7 +5,29 @@ type Person {
   gender: String!
 }
 
+type Book {
+  id: Int!
+  review_no: Int!
+  user_email: String!
+  user_id: String!
+  thumbnail: String!
+  title: String!
+  author: String!
+  comment: String!
+  memo: String!
+}
+
 type Query {
   people: [Person]!
+  books: [Book]!
+  book(id: Int!): Book
   person(id: Int!): Person
+}
+
+type Mutation {
+  addBook(
+    title: String!
+    comment: String!
+  ): Book!
+  deleteBook(id: Int!): Boolean!
 }
