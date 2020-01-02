@@ -7,7 +7,10 @@
   "author": "Ryu-story <55070966+Ryu-story@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "apollo-server-express": "^2.9.15",
+    "body-parser": "^1.19.0",
     "express-graphql": "^0.9.0",
+    "graphql-tools": "^4.0.6",
     "graphql-yoga": "^1.18.3",
     "mongoose": "^5.8.1",
     "node-fetch": "^2.6.0"
