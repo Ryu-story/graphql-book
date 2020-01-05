@@ -102,6 +102,69 @@ let books = [
   }
 ];
 
+let users = [
+  {
+    id: 1,
+    emai: "a@n",
+    pwd: "aa",
+    nickname: "nicka",
+    birth: 861111,
+    gender: "male",
+    created_date: 20191230,
+    profile_photo: undefined
+  },
+  {
+    id: 2,
+    emai: "b@n",
+    pwd: "bb",
+    nickname: "nickb",
+    birth: 822222,
+    gender: "female",
+    created_date: 20191230,
+    profile_photo: undefined
+  },
+  {
+    id: 3,
+    emai: "c@n",
+    pwd: "cc",
+    nickname: "nickc",
+    birth: 833333,
+    gender: "male",
+    created_date: 20191231,
+    profile_photo: undefined
+  },
+  {
+    id: 4,
+    emai: "d@n",
+    pwd: "dd",
+    nickname: "nickd",
+    birth: 864444,
+    gender: "male",
+    created_date: 20200101,
+    profile_photo: undefined
+  },
+  {
+    id: 5,
+    emai: "e@n",
+    pwd: "ee",
+    nickname: "nicke",
+    birth: 865555,
+    gender: "female",
+    created_date: 20200101,
+    profile_photo: undefined
+  },
+  {
+    id: 6,
+    emai: "f@n",
+    pwd: "ff",
+    nickname: "nickf",
+    birth: 866666,
+    gender: "female",
+    created_date: 20200101,
+    profile_photo: undefined
+  }
+];
+
 export const getBooks = () => books;
 
 export const getById = id => {
@@ -127,4 +190,26 @@ export const addBook = (title, comment) => {
   }
   books.push(newBook);
   return newBook;
+}
+
+export const getUsers = () => users;
+
+export const getByUserId = id => {
+  const filteredUsers = users.filter(user => user.id === id);
+  return filteredUsers[0];
+};
+
+export const createUser = (email, pwd, nickname, birth, gender, created_date, profile_photo) => {
+  const newUser = {
+    id: `${users.length + 1}`,
+    email,
+    pwd,
+    nickname,
+    birth,
+    gender,
+    created_date,
+    profile_photo
+  }
+  users.push(newUser);
+  return newUser;
 }

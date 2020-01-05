@@ -1,8 +1,47 @@
-type Person {
-  id: Int!
-  name: String!
-  age: Int!
-  gender: String!
+type Query {
+  people: [Person]!
+  person(id: Int!): Person
+  users: [User]!
+  user(id: ID!): User
+  books: [Book]!
+  book(id: Int!): Book
+  posts: [Post]!
+  post(id: ID!): Post 
+}
+
+type Mutation {
+  addBook(
+    title: String!
+    comment: String!
+  ): Book!
+
+  deleteBook(id: Int!): Boolean!
+  
+  createUser(
+    email: String!
+    pwd: String!
+    nickname: String!
+    birth: Int!
+    gender: gender_option!
+    created_date: Int!
+    profile_photo: String
+  ): User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  pwd: String!
+  nickname: String!
+  birth: Int!
+  gender: gender_option!
+  created_date: Int!
+  profile_photo: String
+}
+
+enum gender_option {
+  male
+  female
 }
 
 type Book {
@@ -17,17 +56,18 @@ type Book {
   memo: String!
 }
 
-type Query {
-  people: [Person]!
-  books: [Book]!
-  book(id: Int!): Book
-  person(id: Int!): Person
+type Post {
+  id: ID!
+  comment: String!
+  hash_tag: String
+  created_date: Int!
+  memo: String
+  star: Int
 }
 
-type Mutation {
-  addBook(
-    title: String!
-    comment: String!
-  ): Book!
-  deleteBook(id: Int!): Boolean!
+type Person {
+  id: Int!
+  name: String!
+  age: Int!
+  gender: String!
 }
